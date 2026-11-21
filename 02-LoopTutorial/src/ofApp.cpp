@@ -2,6 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup() {
+	ofSetFrameRate(12);
 }
 
 //--------------------------------------------------------------
@@ -13,20 +14,32 @@ void ofApp::draw() {
 
 	float t = 1.0 * (ofGetFrameNum() - 1) / numFrames;
 
-	int m = 40;
-
 	ofBackground(239);
 	ofFill();
 	ofSetColor(20);
+
+
+
+
+	int m = 50;
+
+	ofSetLineWidth(2);
 
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < m; j++) {
 			float x = ofMap(i, 0, m - 1, 0, ofGetWidth());
 			float y = ofMap(j, 0, m - 1, 0, ofGetHeight());
 
-			float size = periodicFunction(t - offset(x, y)); // the important line of code
+			ofPushMatrix();
+			ofTranslate(x, y);
 
-			ofDrawCircle(x, y, size);
+			float rot = periodicFunction(t - offset(x, y));
+			
+			ofRotateRad(rot);
+			ofLogNotice("rot: " + ofToString(rot));
+
+			ofLine(-8, 0, 8, 0);
+			ofPopMatrix();
 		}
 	}
 
@@ -39,11 +52,11 @@ void ofApp::draw() {
 }
 
 float ofApp::periodicFunction(float p) {
-	return ofMap(sin(TWO_PI * p), -1, 1, 2, 8);
+	return 1.0 * sin(TWO_PI * p);
 }
 
 float ofApp::offset(float x, float y) {
-	return 0.01 * ofDist(x, y, ofGetWidth() / 2, ofGetHeight() / 2);
+	return 0.005 * (x + 2 * y);
 }
 
 //--------------------------------------------------------------
