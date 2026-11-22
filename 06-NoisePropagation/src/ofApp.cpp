@@ -52,9 +52,9 @@ float ofApp::periodicFunction(float p, float seed, float x, float y) {
 }
 
 float ofApp::offset(float x, float y) {
-	float offset = 0.01 * (x + 2 * y);
+	//float offset = 0.01 * (x + 2 * y);
 	//ofLogNotice("offset: " + ofToString(offset));
-	//float offset =  0.015 * ofDist(x, y, ofGetWidth() / 2, ofGetHeight() / 2);
+	float offset =  0.015 * ofDist(x, y, ofGetWidth() / 2, ofGetHeight() / 2);
 	return offset;
 	//return 0;
 }
