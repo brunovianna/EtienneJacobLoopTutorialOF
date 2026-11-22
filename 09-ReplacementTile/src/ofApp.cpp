@@ -27,6 +27,7 @@ void ofApp::draw() {
 	float t = 1.0 * (ofGetFrameNum() - 1) / numberOfFrames;
 
 	ofBackground(0);
+	ofEnableDepthTest();
 
 	ofPushMatrix();
 	ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
@@ -43,6 +44,7 @@ void ofApp::draw() {
 	}
 
 	ofPopMatrix();
+	ofDisableDepthTest();
 
 	//if (ofGetFrameNum() < numFrames) {
 	//	ofSaveFrame("frames/frame_####.png");

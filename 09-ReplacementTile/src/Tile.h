@@ -18,5 +18,6 @@ private:
 	int nx = 0;
 	int ny = 0;
 	int K = 10; // number of tiles to show above and below the current tile
+	float delay = 0.0; // delay for the rotation of each tile
 };
 #endif
