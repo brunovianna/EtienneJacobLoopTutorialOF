@@ -20,5 +20,13 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+
+		
+        float periodicFunction(float p);
+
+		float offset(float x, float y);
+
+		int numFrames = 100;
+
 		
 };
