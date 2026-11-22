@@ -10,6 +10,8 @@ public:
 
 	void show(float p);
 	void showtime(float t);
+	float easeOutElastic(float x);
+	float ease(float p, float g) ;
 
 private:
 	int xIndex = 0;
