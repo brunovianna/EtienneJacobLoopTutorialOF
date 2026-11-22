@@ -32,7 +32,7 @@ void ofApp::draw() {
 			ofPushMatrix();
 			ofTranslate(x, y);
 
-			float rot = periodicFunction(t - offset(x, y));
+			float rot = periodicFunction(t + offset(x, y));
 
 			ofRotateRad(rot);
 			ofLogNotice("rot: " + ofToString(rot));
@@ -55,7 +55,7 @@ float ofApp::periodicFunction(float p) {
 }
 
 float ofApp::offset(float x, float y) {
-	return 0.005 * (x + 2 * y);
+	return 0.001 * (x + 2 * y);
 }
 
 
