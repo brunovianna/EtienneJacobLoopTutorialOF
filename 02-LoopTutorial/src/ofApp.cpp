@@ -46,7 +46,7 @@ for (int i = 0; i < m; i++) {
 
 float ofApp::periodicFunction(float p) {
 	//return 5.0 * sin(TWO_PI * p);
-	return ofMap(sin(TWO_PI * p), -1, 1, 2, 18);
+	return ofMap(sin(TWO_PI * p), -1, 1, 2, 8);
 }
 
 float ofApp::offset(float x, float y) {
