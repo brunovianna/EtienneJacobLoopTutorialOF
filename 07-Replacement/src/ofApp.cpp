@@ -68,7 +68,7 @@ void ofApp::drawThing(float p) {
 	float theta2 = ofRadToDeg(alpha + ofMap((v1 + v2) / sumv, 0, 1, 0, TWO_PI));
 	float theta3 = ofRadToDeg(alpha + TWO_PI);
 
-	float r = 30 * sin(PI * p); // sin(PI*p) is 0 at p=0 and p=1, and 1 in the middle
+	float r = 24 * sin(PI * p); // sin(PI*p) is 0 at p=0 and p=1, and 1 in the middle
 
 	ofVec2f pos = position(p);
 
