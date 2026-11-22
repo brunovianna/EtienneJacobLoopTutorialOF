@@ -23,23 +23,16 @@ void ofApp::draw() {
 
 	int m = 50;
 
-	ofSetLineWidth(2);
-
-	for (int i = 0; i < m; i++) {
+	
+for (int i = 0; i < m; i++) {
 		for (int j = 0; j < m; j++) {
 			float x = ofMap(i, 0, m - 1, 0, ofGetWidth());
 			float y = ofMap(j, 0, m - 1, 0, ofGetHeight());
 
-			ofPushMatrix();
-			ofTranslate(x, y);
-
-			float rot = periodicFunction(t - offset(x, y));
+			float size = periodicFunction(t - offset(x, y));
 			
-			ofRotateRad(rot);
-			ofLogNotice("rot: " + ofToString(rot));
 
-			ofLine(-8, 0, 8, 0);
-			ofPopMatrix();
+			ofDrawCircle(x, y, size	);
 		}
 	}
 
@@ -52,11 +45,13 @@ void ofApp::draw() {
 }
 
 float ofApp::periodicFunction(float p) {
-	return 1.0 * sin(TWO_PI * p);
+	//return 5.0 * sin(TWO_PI * p);
+	return ofMap(sin(TWO_PI * p), -1, 1, 2, 18);
 }
 
 float ofApp::offset(float x, float y) {
-	return 0.005 * (x + 2 * y);
+	//return 0.05 * (x + 2 * y);
+	return 0.01 * ofDist(x, y, ofGetWidth() / 2, ofGetHeight() / 2);
 }
 
 
