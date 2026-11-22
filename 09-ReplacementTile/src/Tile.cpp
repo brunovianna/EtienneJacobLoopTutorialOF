@@ -1,19 +1,22 @@
 #include "Tile.h"
 
 
-Tile::Tile(int i, int j, float _L, int _nx) {
+Tile::Tile(int i, int j, float _L, int _nx, int _ny, int _K) {
     xIndex = i;
     yIndex = j;
 	L = _L;
 	nx = _nx;
+	ny = _ny;
+	K = _K	; // number of tiles to show above and below the current tile
 }
 
 
 
-void Tile::show()
+void Tile::show(float p)
 {
     ofPushMatrix();
     ofTranslate(L * (xIndex - nx / 2), L * yIndex, -L / 2);
+	ofTranslate(0, -p * L * ny);
 
     ofNoFill();
     ofSetColor(255);
@@ -23,3 +26,9 @@ void Tile::show()
     ofPopMatrix();
 }
 
+void Tile::showtime(float t) {
+	for (int i = -K; i <= K; i++) {
+		float p = i + t;
+		show(p);
+	}
+}

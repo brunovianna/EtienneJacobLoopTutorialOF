@@ -6,14 +6,17 @@ class Tile {
 
 public:
 	Tile() = default;
-	Tile(int i, int j, float _L, int _nx);
+	Tile(int i, int j, float _L, int _nx, int _ny, int _K);
 
-	void show();
+	void show(float p);
+	void showtime(float t);
 
 private:
 	int xIndex = 0;
 	int yIndex = 0;
 	float L = 0;
 	int nx = 0;
+	int ny = 0;
+	int K = 10; // number of tiles to show above and below the current tile
 };
 #endif

@@ -8,7 +8,7 @@ void ofApp::setup(){
 
 	for (int i = 0; i < nx; i++) {
 		for (int j = 0; j < ny; j++) {
-			Tile t = Tile(i, j, L, nx);
+			Tile t = Tile(i, j, L, nx, ny, 10);
 			tiles[i][j] = t;
 		}
 	}
@@ -35,10 +35,10 @@ void ofApp::draw() {
 
 	ofRotateXRad(0.85);
 	ofRotateZRad(0.4);
-
+	
 	for (int i = 0; i < nx; i++) {
 		for (int j = 0; j < ny; j++) {
-			tiles[i][j].show();
+			tiles[i][j].showtime(t);
 		}
 	}
 
