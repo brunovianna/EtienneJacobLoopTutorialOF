@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+	ofSetFrameRate(16);
 }
 
 //--------------------------------------------------------------
@@ -41,9 +41,9 @@ void ofApp::draw() {
 			ofPushMatrix();
 			ofTranslate(x, y);
 
-			//float rot = periodicFunction(t - offset(x, y));
+			float rot = 0.25* TWO_PI * toffset;
 
-	//		ofRotateRad(rot);
+			ofRotateRad(rot);
 			//ofLogNotice("rot: " + ofToString(rot));
 
 //			ofDrawLine(-4 + (3*offset(i,j)), 0, 4 - (3*offset(i,j)), 0);
@@ -52,24 +52,25 @@ void ofApp::draw() {
 		}
 	}
 
-	if (ofGetFrameNum() < numFrames) {
-		ofSaveFrame("frames/frame_####.png");
-	} else  {
-		ofLogNotice("All frames have been saved. Use an online tool to combine them into an animation.");
-		ofExit();
-	}
+	//if (ofGetFrameNum() < numFrames) {
+	//	ofSaveFrame("frames/frame_####.png");
+	//} else  {
+	//	ofLogNotice("All frames have been saved. Use an online tool to combine them into an animation.");
+	//	ofExit();
+	//}
 }
 
 float ofApp::periodicFunction(float p) {
 	float radius = 1.3;
-//	return 1.0 * (float)ofNoise(radius * cos(TWO_PI * p), radius * sin(TWO_PI * p));urn 
+	//return (float)ofNoise(radius * cos(TWO_PI * p), radius * sin(TWO_PI * p));
 	//return 1;
 	return 0.5 * (1 + sin(TWO_PI * p));
 }
 
 float ofApp::offset(float x, float y) {
-	float offset = 0.01 * (x + 2 * y);
+	//float offset = 0.01 * (x + 2 * y);
 	//ofLogNotice("offset: " + ofToString(offset));
+	float offset = ofNoise (x*0.01, 2 * y*0.01);
 	return offset;
 	//return 0;
 }
