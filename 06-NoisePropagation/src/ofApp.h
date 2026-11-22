@@ -22,7 +22,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		
-        float periodicFunction(float p, float seed);
+        float periodicFunction(float p, float seed, float x, float y);
 
 		float offset(float x, float y);
 		int numFrames = 100;

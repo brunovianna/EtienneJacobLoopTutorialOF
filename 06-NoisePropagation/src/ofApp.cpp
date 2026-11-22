@@ -30,8 +30,8 @@ void ofApp::draw() {
 			float x = ofMap(i, 0, m - 1, margin, ofGetWidth() - margin);
 			float y = ofMap(j, 0, m - 1, margin, ofGetHeight() - margin);
 
-			float dx = 20.0 * periodicFunction(t - offset(x, y), 0); // seed at 0
-			float dy = 20.0 * periodicFunction(t - offset(x, y), 123); // seed at 123 which is far enough from 0 for independence
+			float dx = 20.0 * periodicFunction(t - offset(x, y), 0, x, y); // seed at 0
+			float dy = 20.0 * periodicFunction(t - offset(x, y), 123, x, y); // seed at 123 which is far enough from 0 for independence
 
 			ofDrawCircle(x + dx, y + dy,1);
 		}
@@ -45,15 +45,16 @@ void ofApp::draw() {
 	//}
 }
 
-float ofApp::periodicFunction(float p, float seed) {
+float ofApp::periodicFunction(float p, float seed, float x, float y) {
 	float radius = 1.3;
-	return 1.0 * (float)ofNoise(seed + radius * cos(TWO_PI * p), radius * sin(TWO_PI * p));
+	float scl = 0.018;
+	return 1.0 * (float)ofNoise(seed + radius * cos(TWO_PI * p), radius * sin(TWO_PI * p), scl * x, scl * y);
 }
 
 float ofApp::offset(float x, float y) {
-	//float offset = 0.01 * (x + 2 * y);
+	float offset = 0.01 * (x + 2 * y);
 	//ofLogNotice("offset: " + ofToString(offset));
-	float offset =  0.015 * ofDist(x, y, ofGetWidth() / 2, ofGetHeight() / 2);
+	//float offset =  0.015 * ofDist(x, y, ofGetWidth() / 2, ofGetHeight() / 2);
 	return offset;
 	//return 0;
 }
