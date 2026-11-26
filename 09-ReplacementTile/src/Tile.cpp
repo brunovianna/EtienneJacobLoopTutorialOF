@@ -9,6 +9,8 @@ Tile::Tile(int i, int j, float _L, int _nx, int _ny, int _K) {
 	ny = _ny;
 	K = _K	; // number of tiles to show above and below the current tile
 	delay = 0.5 * ofRandomf() + 1.0 * yIndex / ny - 0.3;
+	int digit = floor(ofRandom(10));
+
 }
 
 

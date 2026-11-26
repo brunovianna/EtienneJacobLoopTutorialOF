@@ -46,12 +46,12 @@ void ofApp::draw() {
 	ofPopMatrix();
 	ofDisableDepthTest();
 
-	//if (ofGetFrameNum() < numFrames) {
-	//	ofSaveFrame("frames/frame_####.png");
-	//} else  {
-	//	ofLogNotice("All frames have been saved. Use an online tool to combine them into an animation.");
-	//	ofExit();
-	//}
+	if (ofGetFrameNum() < numberOfFrames) {
+		ofSaveFrame("frames/frame_####.png");
+	} else  {
+		ofLogNotice("All frames have been saved. Use an online tool to combine them into an animation.");
+		ofExit();
+	}
 }
 //
 

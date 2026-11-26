@@ -33,12 +33,12 @@ void ofApp::draw() {
 
 	ofPopMatrix();
 
-	//if (ofGetFrameNum() < numFrames) {
-	//	ofSaveFrame("frames/frame_####.png");
-	//} else  {
-	//	ofLogNotice("All frames have been saved. Use an online tool to combine them into an animation.");
-	//	ofExit();
-	//}
+	if (ofGetFrameNum() < numFrames) {
+		ofSaveFrame("frames/frame_####.png");
+	} else  {
+		ofLogNotice("All frames have been saved. Use an online tool to combine them into an animation.");
+		ofExit();
+	}
 }
 
 float ofApp::randomValue(float p, float seed) {
